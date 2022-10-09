@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f4f716558a0194eba951964c71476f, type: 3}
+  m_Name: Dark
+  m_EditorClassIdentifier: 
+  Name: {fileID: 11400000, guid: 73116796252674041a93c24a2276772a, type: 2}
+  ShopColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  BackgroundColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  Background2Color: {r: 0.25, g: 0.25, b: 0.25, a: 0.5019608}
+  ArrowColor: {r: 1, g: 1, b: 1, a: 1}
+  PieceCenterColor: {r: 1, g: 1, b: 1, a: 0.2509804}
+  ActivePieceColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  NotActivePieceColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
+  PieceBackColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  AccentColor: {r: 1, g: 0.75, b: 0.5, a: 1}
+  ButtonColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  TextColor: {r: 1, g: 1, b: 1, a: 1}

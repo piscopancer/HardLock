@@ -1,0 +1,13 @@
+.panel-hidden {
+    transition-duration: 0.1s, 0s;
+    transition-property: opacity, visibility;
+    transition-delay: 0s, 0.1s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.panel-visible {
+    transition-property: visibility, opacity;
+    transition-duration: 0s, 0.1s;
+    transition-delay: 0s, 0.1s;
+}
