@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   document: {fileID: 222123268}
+  isActiveOnStart: 0
 --- !u!114 &222123268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 1e066a3f6a63e444b91a2a096dafaccd, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 99464389f96b3aa4a88f428ef2e67f5a, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &226698414
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   document: {fileID: 441928130}
+  isActiveOnStart: 1
 --- !u!1 &460042772
 GameObject:
   m_ObjectHideFlags: 0

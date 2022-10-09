@@ -13,6 +13,7 @@ public class PanelMenu : PanelBase
     [SerializeField, ReadOnly] PanelMode panelModeCurrent;
     SliderInt sliderModes;
     Button buttonPlay, buttonShop, buttonSettings, buttonQuit = null;
+
     const float panelSpawnOffset = 5;
     const float timeChangePanel = 0.3f;
 
@@ -24,6 +25,14 @@ public class PanelMenu : PanelBase
         base.Awake();
 
         PuzzleModes.OnPuzzleModeChanged += SetPanelMode;
+        PanelMode.OnInfoClicked += (PuzzleMode mode) =>
+        {
+            Hide();
+        };
+        PanelModeDescription.OnOKClicked += () =>
+        {
+            Show();
+        };
 
         modePanels = document.rootVisualElement.Q<VisualElement>("mode-panels");
         buttonPlay = document.rootVisualElement.Q<Button>("button-play");

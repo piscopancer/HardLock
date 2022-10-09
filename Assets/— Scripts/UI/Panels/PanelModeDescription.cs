@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TriInspector;
@@ -9,14 +10,23 @@ public class PanelModeDescription : PanelBase
     Button buttonOK;
     Label labelDescription, labelModeDescription;
 
+    public static Action OnOKClicked;
+
     protected override void Awake()
     {
         base.Awake();
 
+        PanelMode.OnInfoClicked += (PuzzleMode mode) =>
+        {
+            Show();
+            Setup(mode);
+        };
+
         buttonOK = document.rootVisualElement.Q<Button>("button-ok");
         buttonOK.RegisterCallback((ClickEvent click) =>
         {
-            
+            OnOKClicked?.Invoke();
+            Hide();
         });
         labelDescription = document.rootVisualElement.Q<Label>("description");
         labelDescription.text = "";

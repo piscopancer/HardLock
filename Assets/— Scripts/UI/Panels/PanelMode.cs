@@ -13,6 +13,8 @@ public class PanelMode : VisualElement
     Button buttonInfo;
     Label scoreBest, scoreText;
 
+    public static Action<PuzzleMode> OnInfoClicked;
+
     public PanelMode()
     {
         AddToClassList("panel-mode");
@@ -70,5 +72,9 @@ public class PanelMode : VisualElement
         modeName.text = mode.Name.Text;
         scoreBest.text = $"{mode.GetProgressValue()}";
         scoreText.text = mode.TextScore.Text;
+        buttonInfo.RegisterCallback((ClickEvent click) =>
+        {
+            OnInfoClicked?.Invoke(mode);
+        });
     }
 }
