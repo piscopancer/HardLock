@@ -8,7 +8,7 @@ using Cysharp.Threading.Tasks;
 using UnityEditorInternal;
 
 [RequireComponent(typeof(UIDocument))]
-public class PanelBase : MonoBehaviour
+public abstract class PanelBase : MonoBehaviour
 {
     [SerializeField, Required] protected UIDocument document;
     [SerializeField] bool isActiveOnStart = false;

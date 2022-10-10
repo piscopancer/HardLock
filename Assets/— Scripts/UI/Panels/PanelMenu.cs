@@ -7,12 +7,12 @@ using UnityEngine.UIElements;
 
 public class PanelMenu : PanelBase
 {
-    Button buttonPreviousMode, buttonNextMode = null;
     VisualElement modePanels = null;
-    //[SerializeField, Required] PanelMode panelModeDocument;
     [SerializeField, ReadOnly] PanelMode panelModeCurrent;
     SliderInt sliderModes;
     Button buttonPlay, buttonShop, buttonSettings, buttonQuit = null;
+    [SerializeField, Required, InlineEditor] Translation textPlay, textShop, textSettings, textQuit;
+    LabelWithTranslation labelPlay, labelShop, labelSettings, labelQuit;
 
     const float panelSpawnOffset = 5;
     const float timeChangePanel = 0.3f;
@@ -29,17 +29,43 @@ public class PanelMenu : PanelBase
         {
             Hide();
         };
-        PanelModeDescription.OnOKClicked += () =>
+        OnHide += (PanelBase panel) =>
         {
-            Show();
+            if (panel is PanelModeDescription || panel is PanelSettings) 
+            {
+                Show();
+            }
         };
 
         modePanels = document.rootVisualElement.Q<VisualElement>("mode-panels");
         buttonPlay = document.rootVisualElement.Q<Button>("button-play");
-        buttonPlay.RegisterCallback(delegate (ClickEvent click)
+        buttonPlay.RegisterCallback((ClickEvent click) =>
         {
-            Hide();
-        }, TrickleDown.TrickleDown);
+            OnPlayClicked?.Invoke();
+        });
+        labelPlay = document.rootVisualElement.Q<LabelWithTranslation>("label-play");
+        labelPlay.SetTranslation(textPlay);
+        buttonSettings = document.rootVisualElement.Q<Button>("button-settings");
+        buttonSettings.RegisterCallback((ClickEvent click) =>
+        {
+            OnSettingsClicked?.Invoke();
+        });
+        labelSettings = document.rootVisualElement.Q<LabelWithTranslation>("label-settings");
+        labelSettings.SetTranslation(textSettings);
+        buttonShop = document.rootVisualElement.Q<Button>("button-settings");
+        buttonShop.RegisterCallback((ClickEvent click) =>
+        {
+            OnShopClicked?.Invoke();
+        });
+        labelShop = document.rootVisualElement.Q<LabelWithTranslation>("label-shop");
+        labelShop.SetTranslation(textShop);
+        buttonQuit = document.rootVisualElement.Q<Button>("button-quit");
+        buttonQuit.RegisterCallback((ClickEvent click) =>
+        {
+            OnQuitClicked?.Invoke();
+        });
+        labelQuit = document.rootVisualElement.Q<LabelWithTranslation>("label-quit");
+        labelQuit.SetTranslation(textQuit);
         sliderModes = document.rootVisualElement.Q<SliderInt>("slider-modes");
         sliderModes.highValue = PuzzleModes.ListPuzzleModes.Count - 1;
         sliderModes.value = 0;

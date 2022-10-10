@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/app.uss?fileID=7433441132597879392&amp;guid=10ecd7d16ce6cbd43bcbef97608d311a&amp;type=3#app" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/button.uss?fileID=7433441132597879392&amp;guid=8d5532335a205e54b9c68f1118ffaf00&amp;type=3#button" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(204, 204, 204); margin-left: 10%; margin-right: 10%; margin-top: 30%; margin-bottom: 30%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;">
+        <ui:VisualElement style="height: 200px; justify-content: center; background-color: rgba(0, 0, 0, 0.1); border-top-left-radius: 50px; border-bottom-left-radius: 0; border-top-right-radius: 50px; border-bottom-right-radius: 0;">
+            <ui:Label text="Settings" display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
+            <ui:Button display-tooltip-when-elided="true" name="button-close" class="button-small" style="position: absolute; right: 50px; width: 100px; justify-content: space-between; align-items: stretch;">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/%E2%80%94%20Sprites/cross_0.png?fileID=2800000&amp;guid=913f00f34434d9941a767dfe141e598f&amp;type=3#cross_0&apos;); -unity-background-image-tint-color: rgb(51, 51, 51); flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;" />
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement name="language" style="margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 50px;">
+            <ui:Label text="Language" display-tooltip-when-elided="true" name="laguage-text" style="-unity-text-align: upper-center;" />
+            <ui:VisualElement name="language-buttons" style="align-items: center; flex-direction: row; flex-wrap: wrap; margin-top: 50px;">
+                <ui:Button display-tooltip-when-elided="true" name="button-english" style="width: 50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;">
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/%E2%80%94%20Sprites/english_icon.png?fileID=2800000&amp;guid=18d4c7de5bc900d4f9eeb75e195fc0b0&amp;type=3#english_icon&apos;); -unity-background-scale-mode: scale-to-fit; align-items: stretch; flex-grow: 1; height: 200px; margin-top: 20px; justify-content: space-between;" />
+                    <ui:Label text="English" display-tooltip-when-elided="true" style="flex-grow: 0; padding-top: 20px;" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="button-russian" style="width: 50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;">
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/%E2%80%94%20Sprites/russian_icon.png?fileID=2800000&amp;guid=f979397fc7f8eea46a384b6772624c9c&amp;type=3#russian_icon&apos;); -unity-background-scale-mode: scale-to-fit; align-items: stretch; flex-grow: 1; height: 200px; margin-top: 20px;" />
+                    <ui:Label text="Russian" display-tooltip-when-elided="true" style="flex-grow: 0; padding-top: 20px;" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

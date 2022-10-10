@@ -9,9 +9,12 @@ public class PanelMode : VisualElement
 {
     public new class UxmlFactory : UxmlFactory<PanelMode> { }
 
-    Label modeName;
+    Translation textModeName, textScoreName;
+
+    LabelWithTranslation modeName;
     Button buttonInfo;
-    Label scoreBest, scoreText;
+    Label scoreBest; 
+    LabelWithTranslation scoreText;
 
     public static Action<PuzzleMode> OnInfoClicked;
 
@@ -24,7 +27,7 @@ public class PanelMode : VisualElement
         header.name = "header";
         Add(header);
 
-        modeName = new Label();
+        modeName = new LabelWithTranslation();
         modeName.AddToClassList("mode-name");
         modeName.name = "mode-name";
         modeName.text = "mode";
@@ -60,7 +63,7 @@ public class PanelMode : VisualElement
         scoreBest.text = "0";
         score.Add(scoreBest);
 
-        scoreText = new Label();
+        scoreText = new  LabelWithTranslation();
         scoreText.AddToClassList("score-text");
         scoreText.name = "score-text";
         scoreText.text = "Best score";
@@ -69,9 +72,9 @@ public class PanelMode : VisualElement
 
     public void Setup(PuzzleMode mode)
     {
-        modeName.text = mode.Name.Text;
+        modeName.SetTranslation(mode.Name);
         scoreBest.text = $"{mode.GetProgressValue()}";
-        scoreText.text = mode.TextScore.Text;
+        scoreText.SetTranslation(mode.TextScore);
         buttonInfo.RegisterCallback((ClickEvent click) =>
         {
             OnInfoClicked?.Invoke(mode);

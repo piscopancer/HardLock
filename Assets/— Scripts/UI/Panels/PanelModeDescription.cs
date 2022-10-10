@@ -10,8 +10,6 @@ public class PanelModeDescription : PanelBase
     Button buttonOK;
     Label labelDescription, labelModeDescription;
 
-    public static Action OnOKClicked;
-
     protected override void Awake()
     {
         base.Awake();
@@ -25,7 +23,6 @@ public class PanelModeDescription : PanelBase
         buttonOK = document.rootVisualElement.Q<Button>("button-ok");
         buttonOK.RegisterCallback((ClickEvent click) =>
         {
-            OnOKClicked?.Invoke();
             Hide();
         });
         labelDescription = document.rootVisualElement.Q<Label>("description");
