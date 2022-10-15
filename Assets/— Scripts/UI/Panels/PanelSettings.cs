@@ -51,6 +51,7 @@ public class PanelSettingsFile : PanelFileBase
         buttonHide.RegisterCallback((ClickEvent click) =>
         {
             Back();
+            Translate(this, new Vector2(-3000, 0));
         });
         var buttonHideIcon = new VisualElement();
         buttonHide.Add(buttonHideIcon);

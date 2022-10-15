@@ -1,0 +1,164 @@
+#panel {
+    flex-grow: 1;
+}
+
+#balance {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20%;
+    margin-bottom: 0;
+}
+
+#crystals {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#icon-crystal {
+    width: 80px;
+    height: 80px;
+    margin-right: 50px;
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/crystal_0.png?fileID=2800000&guid=355371d6a4536ae4abea796d8969958a&type=3#crystal_0');
+}
+
+#modes {
+    flex-grow: 1;
+    margin-top: 10%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+#panel-mode-container {
+    flex-grow: 1;
+    justify-content: center;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+#buttons-mode {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-mode {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    align-items: center;
+    width: 150px;
+}
+
+.button-mode .icon {
+    width: 80px;
+    height: 80px;
+}
+
+#button-prev-mode {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-left-width: 0;
+}
+
+#button-next-mode {
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-right-width: 0;
+}
+
+#icon-prev {
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/arrow-left.png?fileID=2800000&guid=9dfd7602abd69e242b359f00dff64769&type=3#arrow-left');
+}
+
+#icon-next {
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/arrow-right.png?fileID=2800000&guid=3c244254acda3c64dba6ad7a297aa8c0&type=3#arrow-right');
+}
+
+#buttons {
+    margin-top: 20%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20%;
+    align-items: flex-end;
+}
+
+#button-shop {
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgba(48, 142, 190, 255);
+    flex-direction: row;
+    height: 180px;
+    border-top-left-radius: 90px;
+    border-bottom-left-radius: 90px;
+    border-left-width: 10px;
+    border-right-width: 0;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+#icon-shop {
+    width: 80px;
+    height: 80px;
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/shop_basket.png?fileID=2800000&guid=147b231c1a84b8741a2ec89c28466a00&type=3#shop_basket');
+    -unity-background-image-tint-color: rgb(204, 204, 204);
+}
+
+#label-shop {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#buttons-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+    margin-top: 20%;
+}
+
+#buttons-bottom .unity-button {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#buttons-bottom .unity-button:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#buttons-bottom .unity-button .icon {
+    width: 80px;
+    height: 80px;
+}
+
+#icon-settings {
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/settings_icon.png?fileID=2800000&guid=a17cf753cc548284086c398fac013c78&type=3#settings_icon');
+}
+
+#icon-quit {
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/turn_off_icon.png?fileID=2800000&guid=1e86ec34112b33143892d3ff620bb3b6&type=3#turn_off_icon');
+}

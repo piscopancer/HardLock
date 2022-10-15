@@ -1,43 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/app.uss?fileID=7433441132597879392&amp;guid=10ecd7d16ce6cbd43bcbef97608d311a&amp;type=3#app" />
-    <Style src="project://database/Assets/UI%20Toolkit/Menu/panelMode.uss?fileID=7433441132597879392&amp;guid=57153443f54a7544fa429b61c85d4929&amp;type=3#panelMode" />
+    <Style src="project://database/Assets/UI%20Toolkit/Menu/panel-mode.uss?fileID=7433441132597879392&amp;guid=57153443f54a7544fa429b61c85d4929&amp;type=3#panel-mode" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/button.uss?fileID=7433441132597879392&amp;guid=8d5532335a205e54b9c68f1118ffaf00&amp;type=3#button" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/slider.uss?fileID=7433441132597879392&amp;guid=2de19481f87ee614d9fa49eb85871e81&amp;type=3#slider" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/theme-dark.uss?fileID=7433441132597879392&amp;guid=5e7e0d7946052224b90af06f01601845&amp;type=3#theme-dark" />
-    <ui:VisualElement name="panel-menu" style="width: auto; height: auto; margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 50px; flex-grow: 1;">
-        <ui:VisualElement name="menu-top" style="width: 100%; height: 200px; align-items: flex-end; justify-content: space-around;">
-            <ui:VisualElement name="balance" style="align-items: center; flex-direction: row;">
-                <ui:VisualElement name="rubies" style="flex-direction: row; -unity-text-align: upper-left; align-items: center; margin-left: 0;">
-                    <ui:VisualElement name="crystal" style="height: 80px; background-image: url(&apos;project://database/Assets/%E2%80%94%20Sprites/ruby.png?fileID=21300000&amp;guid=923d454c7c1d68a45a5dc95781618a0a&amp;type=3#ruby&apos;); width: 80px;" />
-                    <ui:Label text="100" display-tooltip-when-elided="true" name="crystals-value" class="text-first" style="margin-left: 20px;" />
-                </ui:VisualElement>
-                <ui:VisualElement name="crystals" style="flex-direction: row; -unity-text-align: upper-left; align-items: center; margin-left: 50px;">
-                    <ui:VisualElement name="crystal" style="height: 80px; background-image: url(&apos;project://database/Assets/%E2%80%94%20Sprites/crystal_0.png?fileID=21300000&amp;guid=355371d6a4536ae4abea796d8969958a&amp;type=3#crystal_0&apos;); width: 80px;" />
-                    <ui:Label text="100" display-tooltip-when-elided="true" name="crystals-value" class="text-first" style="margin-left: 20px;" />
-                </ui:VisualElement>
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement name="menu-middle" style="height: auto; flex-grow: 1; margin-left: 100px; margin-right: 100px;">
-            <ui:VisualElement name="mode-panels" />
-            <ui:SliderInt picking-mode="Ignore" value="0" high-value="3" name="slider-modes" style="margin-top: 50px;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="menu-bottom" style="flex-grow: 0; height: auto; margin-bottom: 100px;">
-            <ui:VisualElement name="bottom-buttons" style="align-items: stretch; justify-content: flex-start; flex-grow: 0;">
-                <ui:Button display-tooltip-when-elided="true" name="button-play" class="button-primary button-large button-first" style="flex-grow: 0;">
-                    <LabelWithTranslation name="label-play" text="Play" class="text-first" />
-                </ui:Button>
-                <ui:GroupBox style="min-width: auto; min-height: auto; flex-direction: row; margin-top: 50px; margin-left: 0; margin-right: 0; margin-bottom: 0; justify-content: space-between; align-items: auto;">
-                    <ui:Button display-tooltip-when-elided="true" name="button-settings" class="button-secondary button-large button-first" style="flex-grow: 0; margin-right: 0; flex-shrink: 0; align-items: stretch; justify-content: center; flex-basis: auto;">
-                        <LabelWithTranslation name="label-settings" text="Settings" class="text-first" />
-                    </ui:Button>
-                    <ui:Button display-tooltip-when-elided="true" name="button-shop" class="button-secondary button-large button-first" style="flex-grow: 1; margin-left: 20px; flex-shrink: 0; flex-basis: auto; align-items: stretch;">
-                        <LabelWithTranslation name="label-shop" text="Shop" class="text-first" />
-                    </ui:Button>
-                    <ui:Button display-tooltip-when-elided="true" name="button-quit" class="button-secondary button-round button-large button-first" style="flex-grow: 0; margin-left: 20px; width: auto; flex-basis: 33%; justify-content: center; align-items: stretch; margin-right: 0; margin-top: 0; margin-bottom: 0; max-width: 200px; min-width: 200px;">
-                        <LabelWithTranslation name="label-quit" text="Quit" class="text-first" />
-                    </ui:Button>
-                </ui:GroupBox>
-            </ui:VisualElement>
-        </ui:VisualElement>
-    </ui:VisualElement>
+    <Style src="project://database/Assets/UI%20Toolkit/Menu/panel-menu.uss?fileID=7433441132597879392&amp;guid=0652f0d5f44963e4c9efc2fdd084b5c0&amp;type=3#panel-menu" />
+    <PanelMenuFile name="panel" />
 </ui:UXML>

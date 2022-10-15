@@ -7,67 +7,17 @@ using UnityEngine.UIElements;
 
 public class PanelMenu : PanelBase
 {
-    //SliderInt sliderModes;
-    //Button buttonPlay, buttonShop, buttonSettings, buttonQuit = null;
-    [SerializeField, Required, InlineEditor] Translation textPlay, textShop, textSettings, textQuit;
-    //LabelWithTranslation labelPlay, labelShop, labelSettings, labelQuit;
-
-
-
     protected override void Awake()
     {
         base.Awake();
-
-        
-
-        //modePanels = Document.rootVisualElement.Q<VisualElement>("mode-panels");
-        //buttonPlay = Document.rootVisualElement.Q<Button>("button-play");
-        //buttonPlay.RegisterCallback((ClickEvent click) =>
-        //{
-        //    OnPlayClicked?.Invoke();
-        //});
-        //labelPlay = Document.rootVisualElement.Q<LabelWithTranslation>("label-play");
-        //labelPlay.SetTranslation(textPlay);
-        //buttonSettings = Document.rootVisualElement.Q<Button>("button-settings");
-        //buttonSettings.RegisterCallback((ClickEvent click) =>
-        //{
-        //    OnSettingsClicked?.Invoke();
-        //    Translate(Document.rootVisualElement, new Vector2(3000, 0));
-        //});
-        //labelSettings = Document.rootVisualElement.Q<LabelWithTranslation>("label-settings");
-        //labelSettings.SetTranslation(textSettings);
-        //buttonShop = Document.rootVisualElement.Q<Button>("button-shop");
-        //buttonShop.RegisterCallback((ClickEvent click) =>
-        //{
-        //    OnShopClicked?.Invoke();
-        //    Translate(Document.rootVisualElement, new Vector2(0, -3000));
-        //});
-        //labelShop = Document.rootVisualElement.Q<LabelWithTranslation>("label-shop");
-        //labelShop.SetTranslation(textShop);
-        //buttonQuit = Document.rootVisualElement.Q<Button>("button-quit");
-        //buttonQuit.RegisterCallback((ClickEvent click) =>
-        //{
-        //    OnQuitClicked?.Invoke();
-        //});
-        //labelQuit = Document.rootVisualElement.Q<LabelWithTranslation>("label-quit");
-        //labelQuit.SetTranslation(textQuit);
-        //sliderModes = Document.rootVisualElement.Q<SliderInt>("slider-modes");
-        //sliderModes.highValue = PuzzleModes.ListPuzzleModes.Count - 1;
-        //sliderModes.value = 0;
-        //sliderModes.RegisterValueChangedCallback((evt) =>
-        //{
-        //    OnSliderModesDrag?.Invoke(evt.newValue);
-        //});
     }
-
-
 }
 
 public class PanelMenuFile : PanelFileBase
 {
     public new class UxmlFactory : UxmlFactory<PanelMenuFile> { }
 
-    [SerializeField, ReadOnly] PanelMode panelModeCurrent;
+    [SerializeField, ReadOnly] PanelModeFile panelModeCurrent;
     VisualElement panelModeContainer;
 
     public static Action OnSettingsClicked, OnPlayClicked, OnShopClicked, OnQuitClicked;
@@ -76,7 +26,7 @@ public class PanelMenuFile : PanelFileBase
     public PanelMenuFile()
     {
         PuzzleModes.OnPuzzleModeChanged += SetPanelMode;
-        PanelMode.OnInfoClicked += (PuzzleMode mode) =>
+        PanelModeFile.OnInfoClicked += (PuzzleMode mode) =>
         {
             Hide();
         };
@@ -95,22 +45,23 @@ public class PanelMenuFile : PanelFileBase
             }
         };
 
-        name = "panel";
-
         #region balance;
 
         var balance = new VisualElement();
+        balance.name = "balance";
         Add(balance);
 
         var crystals = new VisualElement();
+        crystals.name = "crystals";
         balance.Add(crystals);
 
         var crystalIcon = new VisualElement();
-        crystalIcon.AddClasses("icon-crystal");
+        crystalIcon.name = "icon-crystal";
         crystals.Add(crystalIcon);
 
         var crystalCount = new Label("0");
         crystals.Add(crystalCount);
+        crystalCount.AddClasses(textFirst);
 
         #endregion;
 
@@ -118,24 +69,39 @@ public class PanelMenuFile : PanelFileBase
 
         var modes = new VisualElement();
         Add(modes);
+        modes.name = "modes";
 
         panelModeContainer = new VisualElement();
-        panelModeContainer.AddClasses("panel-mode-container");
         modes.Add(panelModeContainer);
+        panelModeContainer.name = "panel-mode-container";
+        //var mp = new PanelModeFile();
+        //panelModeContainer.Add(mp);
 
         var buttonsMode = new VisualElement();
-        buttonsMode.name = "buttons-mode";
         modes.Add(buttonsMode);
+        buttonsMode.pickingMode = PickingMode.Ignore;
+        buttonsMode.name = "buttons-mode";
 
         var buttonPrevMode = new Button();
-        buttonPrevMode.text = "";
-        buttonPrevMode.AddClasses("button-mode", "button-mode-left");
         buttonsMode.Add(buttonPrevMode);
+        buttonPrevMode.text = "";
+        buttonPrevMode.AddClasses("button-mode", buttonSecond);
+        buttonPrevMode.name = "button-prev-mode";
+        var iconPrev = new VisualElement();
+        buttonPrevMode.Add(iconPrev);
+        iconPrev.name = "icon-prev";
+        iconPrev.AddClasses("icon");
 
         var buttonNextMode = new Button();
-        buttonNextMode.text = "";
-        buttonNextMode.AddClasses("button-mode", "button-mode-left");
         buttonsMode.Add(buttonNextMode);
+        buttonNextMode.text = "";
+        buttonNextMode.AddClasses("button-mode", buttonSecond);
+        buttonNextMode.name = "button-next-mode";
+        var iconNext = new VisualElement();
+        buttonNextMode.Add(iconNext);
+        iconNext.name = "icon-next";
+        iconNext.AddClasses("icon");
+
 
         #endregion;
 
@@ -143,27 +109,50 @@ public class PanelMenuFile : PanelFileBase
 
         var buttons = new VisualElement();
         Add(buttons);
+        buttons.name = "buttons";
 
         var buttonShop = new Button();
-        buttonShop.name = "button-shop";
         buttons.Add(buttonShop);
+        buttonShop.RegisterCallback((ClickEvent click) =>
+        {
+            OnShopClicked?.Invoke();
+        });
+        buttonShop.name = "button-shop";
+        var iconShop = new VisualElement();
+        buttonShop.Add(iconShop);
+        iconShop.name = "icon-shop";
+        var labelShop = new LabelWithTranslation(new Translation("Shop", "Магазин"));
+        buttonShop.Add(labelShop);
+        labelShop.AddClasses(textFirst);
+        labelShop.name = "label-shop";
 
         var buttonsBottom = new VisualElement();
         buttons.Add(buttonsBottom);
+        buttonsBottom.name = "buttons-bottom";
 
         var buttonSettings = new Button();
-        buttonSettings.name = "button";
         buttonsBottom.Add(buttonSettings);
+        buttonSettings.RegisterCallback((ClickEvent click) =>
+        {
+            OnSettingsClicked?.Invoke();
+        });
+        buttonSettings.name = "button-settings";
         var buttonSettingsIcon = new VisualElement();
-        buttonSettingsIcon.AddClasses("button-icon");
         buttonSettings.Add(buttonSettingsIcon);
+        buttonSettingsIcon.name = "icon-settings";
+        buttonSettingsIcon.AddClasses("icon");
 
-        var buttonExit = new Button();
-        buttonExit.name = "button";
-        buttonsBottom.Add(buttonExit);
+        var buttonQuit = new Button();
+        buttonsBottom.Add(buttonQuit);
+        buttonQuit.RegisterCallback((ClickEvent click) =>
+        {
+            OnQuitClicked?.Invoke();
+        });
+        buttonQuit.name = "button-quit";
         var buttonExitIcon = new VisualElement();
-        buttonExitIcon.AddClasses("button-icon");
-        buttonExit.Add(buttonExitIcon);
+        buttonQuit.Add(buttonExitIcon);
+        buttonExitIcon.name = "icon-quit";
+        buttonExitIcon.AddClasses("icon");
 
         #endregion;
     }
@@ -174,7 +163,7 @@ public class PanelMenuFile : PanelFileBase
         {
             panelModeCurrent.RemoveFromHierarchy();
         }
-        var panelMode = new PanelMode();
+        var panelMode = new PanelModeFile();
         panelMode.Setup(newMode);
         panelModeCurrent = panelMode;
         panelModeContainer.Add(panelMode);

@@ -17,52 +17,72 @@ public class PanelModeDescriptionFile : PanelFileBase
 {
     public new class UxmlFactory : UxmlFactory<PanelModeDescriptionFile> { }
 
-    LabelWithTranslation labelDescription, labelModeDescription;
+    VisualElement body;
+    LabelWithTranslation labelHeader, labelModeDescription;
 
     public PanelModeDescriptionFile()
     {
-        PanelMode.OnInfoClicked += (PuzzleMode mode) =>
+        PanelModeFile.OnInfoClicked += (PuzzleMode mode) =>
         {
             Show();
             Setup(mode);
-            Translate(this, new Vector2(0, 0), new Vector2(0, 200));
+            Translate(body, new Vector2(0, 0), new Vector2(0, 200));
         };
 
-        name = "panel";
+        body = new VisualElement();
+        Add(body);
+        body.name = "body";
+        body.AddClasses(backgroundFirst);
 
         #region header
 
         var header = new VisualElement();
+        body.Add(header);
         header.name = "header";
-        Add(header);
+        header.AddClasses(backgroundSecond);
 
-        labelDescription = new();
-        labelDescription.name = "label-description";
-        header.Add(labelDescription);
+        labelHeader = new();
+        header.Add(labelHeader);
+        labelHeader.name = "label-header";
+        labelHeader.text = "mode name";
+        labelHeader.AddClasses(textSecond);
 
         #endregion
 
         #region main
 
         var main = new VisualElement();
-        Add(main);
+        body.Add(main);
+        main.name = "main";
 
         labelModeDescription = new();
-        labelModeDescription.name = "label-mode-description";
         main.Add(labelModeDescription);
+        labelModeDescription.name = "label-mode-description";
+        labelModeDescription.text = "mode description text here";
+        labelModeDescription.AddClasses(textFirst);
 
         var buttonOK = new Button();
-        buttonOK.AddClasses(buttonSmall, buttonFirst);
         main.Add(buttonOK);
+        buttonOK.name = "button-ok";
+        buttonOK.AddClasses(buttonSmall, buttonFirst);
+        buttonOK.RegisterCallback((ClickEvent click) =>
+        {
+            Hide();
+        });
         var labelButtonOK = new LabelWithTranslation(new Translation("Ok, and?", "ќк, ладно"));
         buttonOK.Add(labelButtonOK);
+        buttonOK.RegisterCallback((ClickEvent click) =>
+        {
+            Hide();
+        });
+        labelButtonOK.AddClasses(textSecond);
 
         #endregion
     }
 
     public void Setup(PuzzleMode mode)
     {
-        labelDescription.text = mode.Name.Text;
+        labelHeader.text = mode.Name.Text;
         labelModeDescription.text = mode.Description.Text;
     }
 }

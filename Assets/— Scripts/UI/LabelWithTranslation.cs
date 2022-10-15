@@ -12,11 +12,7 @@ public class LabelWithTranslation : Label
 
     public LabelWithTranslation()
     {
-        Language.OnLanguageChanged += (Languages language) =>
-        {
-            text = translation.Text;
-        };
-        text = "";
+        Debug.LogWarning("translation not assigned");
     }
 
     public LabelWithTranslation(Translation translation)

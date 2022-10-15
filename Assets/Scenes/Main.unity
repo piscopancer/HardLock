@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Document>k__BackingField: {fileID: 222123268}
-  isActiveOnStart: 0
+  isActiveOnStart: 1
 --- !u!114 &222123268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,10 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Document>k__BackingField: {fileID: 441928130}
   isActiveOnStart: 1
-  textPlay: {fileID: 11400000, guid: 4e3c5f96771d4e643a6c5e66c5397070, type: 2}
-  textShop: {fileID: 11400000, guid: 89ea46d0d758081498cf3272fe8cd72a, type: 2}
-  textSettings: {fileID: 11400000, guid: 3cb446d3d1f7f874bb662208261cafa8, type: 2}
-  textQuit: {fileID: 11400000, guid: dfbf12a6b35fe7245a1ccd791c23383a, type: 2}
 --- !u!1 &460042772
 GameObject:
   m_ObjectHideFlags: 0
