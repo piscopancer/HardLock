@@ -21,26 +21,31 @@ public class PanelMode : VisualElement
     public PanelMode()
     {
         AddToClassList("panel-mode");
+        AddToClassList("background-first");
 
         var header = new VisualElement();
         header.AddToClassList("header");
+        header.AddToClassList("background-second");
         header.name = "header";
         Add(header);
 
         modeName = new LabelWithTranslation();
         modeName.AddToClassList("mode-name");
+        modeName.AddToClassList("text-second");
         modeName.name = "mode-name";
         modeName.text = "mode";
         header.Add(modeName);
 
         buttonInfo = new Button();
         buttonInfo.AddToClassList("button-info");
+        buttonInfo.AddToClassList("button-second");
         buttonInfo.name = "button-info";
         buttonInfo.text = "";
         header.Add(buttonInfo);
 
         var buttonInfoLabel = new Label();
         buttonInfoLabel.AddToClassList("button-info-label");
+        buttonInfoLabel.AddToClassList("text-second");
         buttonInfoLabel.name = "button-info-label";
         buttonInfoLabel.text = "?";
         buttonInfo.Add(buttonInfoLabel);
@@ -59,12 +64,14 @@ public class PanelMode : VisualElement
 
         scoreBest = new Label();
         scoreBest.AddToClassList("score-best");
+        scoreBest.AddToClassList("text-first");
         scoreBest.name = "score-best";
         scoreBest.text = "0";
         score.Add(scoreBest);
 
         scoreText = new  LabelWithTranslation();
         scoreText.AddToClassList("score-text");
+        scoreText.AddToClassList("text-second");
         scoreText.name = "score-text";
         scoreText.text = "Best score";
         score.Add(scoreText);

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using Unity.Collections;
+using UnityEngine.UIElements;
 using TriInspector;
 
 public class Themes : MonoBehaviour
@@ -35,9 +35,27 @@ public class Themes : MonoBehaviour
 
     void Awake()
     {
+        SaveSystem.OnSaveLoaded += (SaveSystem.SaveData save) =>
+        {
+            SetTheme(save.ThemeCurrent);
+        };
+        SaveSystem.OnSaveDoesNotExist += () =>
+        {
+            SetTheme(ListThemes[0]);
+        };
         ThemeButton.OnThemeSelect += SetTheme;
+    }
 
-        SetTheme(CurrentTheme);
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SetTheme(ListThemes[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SetTheme(ListThemes[0]);
+        }
     }
 
     void SetTheme(ThemeProfile newTheme)
@@ -54,14 +72,17 @@ public class Themes : MonoBehaviour
             }
         }
         OnThemeChanged?.Invoke(newTheme);
+        Debug.Log("theme set to: " + newTheme.Name.Text);
     }
 }
 
 [Serializable]
 public class ThemeProfile : PurchasableItemPermanent
 {
+    [field: SerializeField, Required, InlineEditor] public Translation Name { get; private set; }
     [field: SerializeField, TriInspector.ReadOnly] public bool IfSelected { get; set; }
     [field: SerializeField, Min(0)] public int Price { get; set; }
     [field: SerializeField] public bool IfBought { get; set; }
-    [field: SerializeField, InlineEditor] public ThemeData ThemeData { get; private set; }
+    [field: SerializeField] public Color ColorShop { get; private set; } = Color.white;
+    [field: SerializeField, Required] public StyleSheet USS { get; private set; }
 }

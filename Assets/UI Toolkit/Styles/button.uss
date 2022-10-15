@@ -4,26 +4,15 @@
     display: flex;
     align-items: stretch;
     justify-content: space-around;
-    background-image: none;
-    -unity-slice-left: 0;
-    -unity-slice-top: 0;
-    -unity-slice-right: 0;
-    -unity-slice-bottom: 0;
-    -unity-background-scale-mode: stretch-to-fill;
     border-left-width: 5px;
     border-right-width: 5px;
     border-top-width: 5px;
     border-bottom-width: 5px;
-    background-color: rgb(255, 255, 255);
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     opacity: 0.75;
-    border-left-color: rgba(54, 58, 64, 255);
-    border-right-color: rgba(54, 58, 64, 255);
-    border-top-color: rgba(54, 58, 64, 255);
-    border-bottom-color: rgba(54, 58, 64, 255);
 }
 
 .unity-button:active {
@@ -32,15 +21,7 @@
     transition-timing-function: ease;
     transition-delay: 0s;
     display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    background-image: none;
-    background-color: rgb(255, 255, 255);
-    translate: 0 20px;
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
+    translate: 0 10px;
     border-left-width: 5px;
     border-right-width: 5px;
     border-top-width: 5px;

@@ -1,11 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TriInspector;
 
 [CreateAssetMenu(menuName = "Data/Translation")]
 public class Translation : ScriptableObject
 {
+    public Translation(string textEng, string textRus)
+    {
+        TextEnglish = textEng;
+        TextRussian = textRus;
+    }
+
     public string Text
     {
         get

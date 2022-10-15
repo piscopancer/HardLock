@@ -1,4 +1,3 @@
-using GluonGui.WorkspaceWindow.Views.WorkspaceExplorer.Explorer;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -53,7 +52,8 @@ public class PuzzleModes : MonoBehaviour
             SetMode(0);
             Debug.Log("default mode loaded");
         };
-        PanelMenu.OnSliderModesDrag += SetMode;
+        //PanelMenuFile.OnPrevModeClicked += SetMode;
+        //PanelMenuFile.OnNextModeClicked += SetMode;
     }
 
     void SetMode(PuzzleMode newMode)

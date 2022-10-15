@@ -1,0 +1,74 @@
+#background-main {
+    background-color: rgb(38, 38, 38);
+}
+
+.text-first {
+    color: rgb(190, 190, 190);
+}
+
+.text-second {
+    color: rgb(153, 153, 153);
+}
+
+.background-first {
+    background-color: rgb(255, 255, 255);
+}
+
+.background-second {
+    background-color: rgb(13, 13, 13);
+}
+
+.icon {
+    -unity-background-image-tint-color: rgb(128, 128, 128);
+}
+
+.button-first {
+    background-color: rgb(220, 220, 220);
+    border-left-color: rgb(64, 64, 64);
+    border-right-color: rgb(64, 64, 64);
+    border-top-color: rgb(64, 64, 64);
+    border-bottom-color: rgb(64, 64, 64);
+    color: rgb(128, 128, 128);
+}
+
+.button-first:active {
+    border-left-color: rgb(128, 128, 128);
+    border-right-color: rgb(128, 128, 128);
+    border-top-color: rgb(128, 128, 128);
+    border-bottom-color: rgb(128, 128, 128);
+    background-color: rgb(64, 64, 64);
+}
+
+.button-second {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.button-second:active {
+}
+
+.unity-slider-int {
+}
+
+#unity-dragger {
+    background-color: rgb(51, 51, 51);
+    border-left-color: rgb(64, 64, 64);
+    border-right-color: rgb(64, 64, 64);
+    border-top-color: rgb(64, 64, 64);
+    border-bottom-color: rgb(64, 64, 64);
+}
+
+#unity-dragger :hover {
+    border-left-color: rgb(128, 128, 128);
+    border-right-color: rgb(128, 128, 128);
+    border-top-color: rgb(128, 128, 128);
+    border-bottom-color: rgb(128, 128, 128);
+    background-color: rgb(64, 64, 64);
+}
+
+#unity-tracker {
+    background-color: rgb(26, 26, 26);
+    border-left-color: rgb(51, 51, 51);
+    border-right-color: rgb(51, 51, 51);
+    border-top-color: rgb(51, 51, 51);
+    border-bottom-color: rgb(51, 51, 51);
+}

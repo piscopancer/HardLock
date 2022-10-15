@@ -15,11 +15,11 @@ public class SaveSystem : MonoBehaviour
 
     void Awake()
     {
-        PanelMenu.OnQuitClicked += delegate
-        {
-            Save();
-            Application.Quit();
-        }; 
+        //PanelMenu.OnQuitClicked += delegate
+        //{
+        //    Save();
+        //    Application.Quit();
+        //}; 
     }
 
     void Start()
@@ -33,13 +33,15 @@ public class SaveSystem : MonoBehaviour
     {
         public Languages LanguageCurrent;
         public PuzzleMode PuzzleModeCurrent;
+        public ThemeProfile ThemeCurrent;
     }
 
     void Save()
     {
         SaveData save = new SaveData
         {
-            LanguageCurrent = Language.LanguageCurrent
+            LanguageCurrent = Language.LanguageCurrent,
+            ThemeCurrent = Themes.CurrentTheme
         };
         string saveText = JsonUtility.ToJson(save, true);
         using StreamWriter sw = new StreamWriter(fullPath);

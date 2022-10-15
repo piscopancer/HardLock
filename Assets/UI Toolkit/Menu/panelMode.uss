@@ -1,5 +1,4 @@
 .panel-mode {
-    background-color: rgba(255, 255, 255, 255);
     border-left-width: 5px;
     border-right-width: 5px;
     border-top-width: 5px;
@@ -13,7 +12,6 @@
 .header {
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.15);
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;

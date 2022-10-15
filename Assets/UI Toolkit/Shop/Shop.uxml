@@ -1,7 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/app.uss?fileID=7433441132597879392&amp;guid=10ecd7d16ce6cbd43bcbef97608d311a&amp;type=3#app" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/button.uss?fileID=7433441132597879392&amp;guid=8d5532335a205e54b9c68f1118ffaf00&amp;type=3#button" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/scrollview.uss?fileID=7433441132597879392&amp;guid=018927127c788aa429679b8f92ae77df&amp;type=3#scrollview" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/slider.uss?fileID=7433441132597879392&amp;guid=2de19481f87ee614d9fa49eb85871e81&amp;type=3#slider" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/theme-dark.uss?fileID=7433441132597879392&amp;guid=5e7e0d7946052224b90af06f01601845&amp;type=3#theme-dark" />
-    <Style src="project://database/Assets/UI%20Toolkit/Settings/panel-settings.uss?fileID=7433441132597879392&amp;guid=07b09d67d6129fa459344b25f8be391f&amp;type=3#panel-settings" />
-    <PanelSettingsFile name="panel" />
+    <PanelShopFile name="panel-main" />
 </ui:UXML>

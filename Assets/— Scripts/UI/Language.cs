@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum Languages
+{
+    English,
+    Russian
+}
+
 public class Language : MonoBehaviour
 {
     [SerializeField] Languages languageCurrent = Languages.English;
@@ -11,12 +17,6 @@ public class Language : MonoBehaviour
         get
         {
             return FindObjectOfType<Language>().languageCurrent;
-        }
-        set
-        {
-            var language = FindObjectOfType<Language>();
-            language.languageCurrent = value;
-            OnLanguageChanged?.Invoke(value);
         }
     }
 
@@ -28,15 +28,12 @@ public class Language : MonoBehaviour
         {
             languageCurrent = save.LanguageCurrent;
         };
-        PanelSettings.OnLanguageClicked += delegate (Languages newLang)
-        {
-            LanguageCurrent = newLang;
-        };
+        PanelSettingsFile.OnLanguageClicked += ChangeLanguage;
     }
-}
 
-public enum Languages
-{
-    English,
-    Russian
+    void ChangeLanguage(Languages newLang)
+    {
+        languageCurrent = newLang;
+        OnLanguageChanged?.Invoke(newLang);
+    }
 }

@@ -1,3 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="background" style="flex-grow: 1; background-color: rgb(204, 204, 204); align-items: center; justify-content: flex-start; overflow: hidden; background-image: none; -unity-slice-left: 2; -unity-slice-top: 2; -unity-slice-right: 2; -unity-slice-bottom: 2; -unity-background-image-tint-color: rgb(255, 255, 255);" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/theme-dark.uss?fileID=7433441132597879392&amp;guid=5e7e0d7946052224b90af06f01601845&amp;type=3#theme-dark" />
+    <ui:VisualElement name="background-main" style="flex-grow: 1; align-items: center; justify-content: flex-start; overflow: hidden;" />
 </ui:UXML>

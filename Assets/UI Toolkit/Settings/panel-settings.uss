@@ -1,0 +1,94 @@
+#panel {
+    flex-grow: 1;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30%;
+    margin-bottom: 30%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#header {
+    align-items: flex-end;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+#label-header {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    -unity-text-align: upper-center;
+    left: 0;
+}
+
+#button-hide {
+    width: 100px;
+    height: 100px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#button-hide .icon {
+    flex-grow: 1;
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/cross_0.png?fileID=2800000&guid=913f00f34434d9941a767dfe141e598f&type=3#cross_0');
+}
+
+#main {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.label-title {
+    -unity-text-align: upper-center;
+}
+
+#buttons-language {
+    flex-direction: row;
+    flex-grow: 1;
+    margin-top: 50px;
+}
+
+.button-language {
+    align-items: center;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 50%;
+}
+
+.button-language #icon {
+    width: 150px;
+    height: 150px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.button-language #name {
+    margin-top: 20px;
+}
+
+#button-russian #icon {
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/russian_icon.png?fileID=2800000&guid=f979397fc7f8eea46a384b6772624c9c&type=3#russian_icon');
+}
+
+#button-english #icon {
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/english_icon.png?fileID=2800000&guid=18d4c7de5bc900d4f9eeb75e195fc0b0&type=3#english_icon');
+}

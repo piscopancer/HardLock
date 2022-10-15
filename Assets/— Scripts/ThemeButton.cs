@@ -33,7 +33,7 @@ public class ThemeButton : MonoBehaviour
         PriceHolder.SetActive(!theme.IfBought);
         //PriceText.text = theme.Price.ToString();
         SelectionBox.SetActive(theme.IfSelected);
-        ColorImage.color = theme.ThemeData.ShopColor;
+        ColorImage.color = theme.ColorShop;
         //NameText.text = theme.ThemeData.name;
     }
 
