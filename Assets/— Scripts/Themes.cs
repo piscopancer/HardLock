@@ -43,7 +43,7 @@ public class Themes : MonoBehaviour
         {
             SetTheme(ListThemes[0]);
         };
-        ThemeButton.OnThemeSelect += SetTheme;
+        ButtonTheme.OnSelectThemeClicked += SetTheme;
     }
 
     void Update()

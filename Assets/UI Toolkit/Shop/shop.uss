@@ -95,16 +95,16 @@
     justify-content: center;
 }
 
-#state.not-bought {
-    background-color: rgba(87, 217, 87, 255);
+#state.not-bought.not-selected {
+    background-color: rgb(87, 217, 87);
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
 }
 
-#state.bought.not-selected {
-    background-color: rgba(128, 191, 255, 255);
+#state.not-selected {
+    background-color: rgb(128, 191, 255);
 }
 
 #state .selected {

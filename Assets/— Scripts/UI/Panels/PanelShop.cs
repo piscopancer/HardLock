@@ -1,4 +1,3 @@
-using Codice.Client.Common;
 using System;
 using System.Collections.Generic;
 using TriInspector;
@@ -56,20 +55,42 @@ public class PanelShopFile : PanelFileBase
 public class ButtonTheme : Button {
     public new class UxmlFactory : UxmlFactory<ButtonTheme> { }
 
+    ThemeProfile profile;
+
     public static Action<ThemeProfile> OnBuyThemeClicked, OnSelectThemeClicked;
 
     public ButtonTheme() { }
     public ButtonTheme(ThemeProfile profile) {
-        if (profile.IfBought) {
-            RegisterCallback((ClickEvent click) => {
-                OnSelectThemeClicked?.Invoke(profile);
-            });
-        }
-        if (!profile.IfBought) {
-            RegisterCallback((ClickEvent click) => {
+        Themes.OnThemeChanged += (ThemeProfile profile) => {
+            Clear();
+            Setup(this.profile);
+        };
+        Balance.OnItemBought += (PurchasableItem boughtItem) => {
+            if (boughtItem is ThemeProfile) {
+                Clear();
+                Setup(this.profile);
+            }
+        };
+
+        RegisterCallback((ClickEvent click) => {
+            if (!profile.IfBought) {
                 OnBuyThemeClicked?.Invoke(profile);
-            });
-        }
+                return;
+            }
+            if (profile.IfBought) {
+                if (!profile.IfSelected) {
+                    OnSelectThemeClicked?.Invoke(profile);
+                }
+                else {
+                    Debug.LogWarning("THEME ALREADY SELECTED");
+                }
+            }
+        });
+        Setup(profile);
+    }
+
+    void Setup(ThemeProfile profile) {
+        this.profile = profile;
 
         this.AddClasses("button-theme");
         style.backgroundImage = profile.Theme.BackgroundImage.texture;

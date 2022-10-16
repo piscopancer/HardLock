@@ -6,14 +6,23 @@ using System;
 
 public class Balance : MonoBehaviour
 {
-    [SerializeField, ReadOnly] int coins = 100;
+    static int coins = 100;
 
-    public static Action<int, int> OnBalanceChanged;
+    public static Action<int> OnNewBalance, OnMoneySpent;
     public static Action<PurchasableItem> OnItemBought;
 
     void Awake()
     {
-        ThemeButton.OnThemeBuy += BuyItem;
+        ButtonTheme.OnBuyThemeClicked += TryBuyItem;
+    }
+
+    void TryBuyItem(PurchasableItem purchItem) {
+        if (coins >= purchItem.Price) {
+            BuyItem(purchItem);
+        }
+        else {
+            Debug.Log("not enough money");
+        }
     }
 
     void BuyItem(PurchasableItem purchItem)
@@ -26,22 +35,20 @@ public class Balance : MonoBehaviour
         if (purchItem is PurchasableItemPermanent)
         {
             var item = (PurchasableItemPermanent)purchItem;
+            if (item.IfBought) {
+                Debug.LogError("item is already bought");
+            }
             item.IfBought = true;
         }
         ChangeCoins(-purchItem.Price);
         OnItemBought?.Invoke(purchItem);
     }
 
-    static void ChangeCoins(int by)
+    void ChangeCoins(int by)
     {
-        var balance = FindObjectOfType<Balance>();
-        balance.coins += by;
-        OnBalanceChanged?.Invoke(balance.coins, by);
-    }
-
-    public static bool CheckCanBuy(int price)
-    {
-        return FindObjectOfType<Balance>().coins >= price;
+        coins += by;
+        OnNewBalance?.Invoke(coins);
+        OnMoneySpent?.Invoke(by);
     }
 }
 
