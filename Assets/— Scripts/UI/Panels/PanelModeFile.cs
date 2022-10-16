@@ -9,43 +9,36 @@ public class PanelModeFile : VisualElement
 {
     public new class UxmlFactory : UxmlFactory<PanelModeFile> { }
 
-    Translation textModeName, textScoreName;
-
-    LabelWithTranslation modeName;
+    ThemedLabel modeName;
     Button buttonInfo;
     Label scoreBest; 
-    LabelWithTranslation scoreText;
-    Button buttonPlay;
+    ThemedLabel scoreText;
 
     public static Action<PuzzleMode> OnInfoClicked;
-    public static Action<PuzzleMode> OnPlayClicked;
 
-    public PanelModeFile()
-    {
+    public PanelModeFile() { }
+    public PanelModeFile(PuzzleMode mode) {
         name = "panel-mode";
-        this.AddClasses("background-first");
 
         #region header
 
-        var header = new VisualElement();
-        header.AddToClassList("background-second");
+        var header = new ThemedContainerFirst();
         header.name = "header";
         Add(header);
 
-        modeName = new LabelWithTranslation();
-        modeName.AddClasses("text-second");
+        modeName = new ThemedLabelZero(mode.Name);
         modeName.name = "mode-name";
-        modeName.text = "[mode name]";
         header.Add(modeName);
 
-        buttonInfo = new Button();
-        buttonInfo.AddClasses("button-second");
+        buttonInfo = new ThemedButtonSecond();
+        header.Add(buttonInfo);
         buttonInfo.name = "button-info";
         buttonInfo.text = "";
-        header.Add(buttonInfo);
+        buttonInfo.RegisterCallback((ClickEvent click) => {
+            OnInfoClicked?.Invoke(mode);
+        });
 
-        var buttonInfoLabel = new Label();
-        buttonInfoLabel.AddClasses("text-second");
+        var buttonInfoLabel = new ThemedLabelSecond();
         buttonInfoLabel.name = "button-info-label";
         buttonInfoLabel.text = "?";
         buttonInfo.Add(buttonInfoLabel);
@@ -54,7 +47,7 @@ public class PanelModeFile : VisualElement
 
         #region main
 
-        var main = new VisualElement();
+        var main = new ThemedContainerSecond();
         main.name = "main";
         Add(main);
 
@@ -62,44 +55,16 @@ public class PanelModeFile : VisualElement
         score.name = "score";
         main.Add(score);
 
-        scoreBest = new Label();
-        scoreBest.AddClasses("text-first");
+        scoreBest = new ThemedLabelFirst($"{mode.GetProgressValue()}");
         scoreBest.name = "score-best";
-        scoreBest.text = "[0]";
         score.Add(scoreBest);
 
-        scoreText = new  LabelWithTranslation();
-        scoreText.AddClasses("text-second");
+        scoreText = new ThemedLabelSecond(mode.TextScore);
         scoreText.name = "score-text";
-        scoreText.text = "[Best score]";
         score.Add(scoreText);
 
-        buttonPlay = new Button();
-        main.Add(buttonPlay);
-        buttonPlay.name = "button-play";
-        var iconPlay = new VisualElement();
-        buttonPlay.Add(iconPlay);
-        iconPlay.name = "icon-play";
-        var labelPlay = new LabelWithTranslation(new Translation("Start", "Старт"));
-        buttonPlay.Add(labelPlay);
-        labelPlay.AddClasses("text-first");
-
         #endregion
-    }
 
-    public void Setup(PuzzleMode mode)
-    {
-        modeName.SetTranslation(mode.Name);
-        scoreBest.text = $"{mode.GetProgressValue()}";
-        scoreText.SetTranslation(mode.TextScore);
-        buttonInfo.RegisterCallback((ClickEvent click) =>
-        {
-            OnInfoClicked?.Invoke(mode);
-        });
-        buttonPlay.RegisterCallback((ClickEvent click) =>
-        {
-            OnPlayClicked?.Invoke(mode);
-            Debug.Log("play clicked with mode: " + mode.Name.Text);
-        });
+
     }
 }

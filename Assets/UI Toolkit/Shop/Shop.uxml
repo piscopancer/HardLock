@@ -3,6 +3,6 @@
     <Style src="project://database/Assets/UI%20Toolkit/Styles/button.uss?fileID=7433441132597879392&amp;guid=8d5532335a205e54b9c68f1118ffaf00&amp;type=3#button" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/scrollview.uss?fileID=7433441132597879392&amp;guid=018927127c788aa429679b8f92ae77df&amp;type=3#scrollview" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/slider.uss?fileID=7433441132597879392&amp;guid=2de19481f87ee614d9fa49eb85871e81&amp;type=3#slider" />
-    <Style src="project://database/Assets/UI%20Toolkit/Styles/theme-dark.uss?fileID=7433441132597879392&amp;guid=5e7e0d7946052224b90af06f01601845&amp;type=3#theme-dark" />
-    <PanelShopFile name="panel-main" />
+    <Style src="project://database/Assets/UI%20Toolkit/Shop/shop.uss?fileID=7433441132597879392&amp;guid=1fa94cd67b3a6b74384bcc82ab041755&amp;type=3#shop" />
+    <PanelShopFile name="panel" />
 </ui:UXML>

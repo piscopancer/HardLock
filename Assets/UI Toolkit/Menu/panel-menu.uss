@@ -5,7 +5,7 @@
 #balance {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 20%;
+    margin-top: 10%;
     margin-bottom: 0;
 }
 
@@ -24,35 +24,20 @@
 
 #modes {
     flex-grow: 1;
-    margin-top: 10%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-}
-
-#panel-mode-container {
-    flex-grow: 1;
-    justify-content: center;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-top: 100px;
 }
 
 #buttons-mode {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 50px;
 }
 
 .button-mode {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     align-items: center;
-    width: 150px;
 }
 
 .button-mode .icon {
@@ -72,6 +57,27 @@
     border-right-width: 0;
 }
 
+#button-play {
+    flex-grow: 1;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 200px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#icon-play {
+    width: 80px;
+    height: 80px;
+    background-image: url('project://database/Assets/%E2%80%94%20Sprites/play.png?fileID=2800000&guid=0e7fa6bf5d3430545bc79a4cab9ee3ba&type=3#play');
+    margin-right: 40px;
+}
+
 #icon-prev {
     background-image: url('project://database/Assets/%E2%80%94%20Sprites/arrow-left.png?fileID=2800000&guid=9dfd7602abd69e242b359f00dff64769&type=3#arrow-left');
 }
@@ -89,32 +95,18 @@
 }
 
 #button-shop {
-    align-items: center;
-    justify-content: flex-start;
+    height: 150px;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: rgba(48, 142, 190, 255);
-    flex-direction: row;
-    height: 180px;
-    border-top-left-radius: 90px;
-    border-bottom-left-radius: 90px;
-    border-left-width: 10px;
-    border-right-width: 0;
-    border-top-width: 10px;
-    border-bottom-width: 10px;
-    border-left-color: rgba(0, 0, 0, 0);
-    border-right-color: rgba(0, 0, 0, 0);
-    border-top-color: rgba(0, 0, 0, 0);
-    border-bottom-color: rgba(0, 0, 0, 0);
 }
 
 #icon-shop {
     width: 80px;
     height: 80px;
     background-image: url('project://database/Assets/%E2%80%94%20Sprites/shop_basket.png?fileID=2800000&guid=147b231c1a84b8741a2ec89c28466a00&type=3#shop_basket');
-    -unity-background-image-tint-color: rgb(204, 204, 204);
 }
 
 #label-shop {

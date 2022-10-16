@@ -4,10 +4,14 @@
     margin-right: 10%;
     margin-top: 30%;
     margin-bottom: 30%;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+}
+
+#body {
+    flex-grow: 1;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    border-top-right-radius: 75px;
+    border-bottom-right-radius: 75px;
 }
 
 #header {
@@ -17,8 +21,8 @@
     padding-right: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 75px;
+    border-top-right-radius: 75px;
 }
 
 #label-header {
@@ -41,9 +45,11 @@
     border-bottom-right-radius: 50px;
 }
 
-#button-hide .icon {
-    flex-grow: 1;
+#button-hide-icon {
     background-image: url('project://database/Assets/%E2%80%94%20Sprites/cross_0.png?fileID=2800000&guid=913f00f34434d9941a767dfe141e598f&type=3#cross_0');
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
 }
 
 #main {
@@ -70,6 +76,7 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     width: 50%;
+    flex-direction: column;
 }
 
 .button-language #icon {

@@ -1,7 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/app.uss?fileID=7433441132597879392&amp;guid=10ecd7d16ce6cbd43bcbef97608d311a&amp;type=3#app" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/button.uss?fileID=7433441132597879392&amp;guid=8d5532335a205e54b9c68f1118ffaf00&amp;type=3#button" />
-    <Style src="project://database/Assets/UI%20Toolkit/Styles/theme-dark.uss?fileID=7433441132597879392&amp;guid=5e7e0d7946052224b90af06f01601845&amp;type=3#theme-dark" />
     <Style src="project://database/Assets/UI%20Toolkit/ModeDescription/mode-description.uss?fileID=7433441132597879392&amp;guid=72d733b2befc2c840aa33c002d8e6726&amp;type=3#mode-description" />
     <PanelModeDescriptionFile name="panel" />
 </ui:UXML>

@@ -2,7 +2,7 @@
     transition-timing-function: ease;
     transition-delay: 0s;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: space-around;
     border-left-width: 5px;
     border-right-width: 5px;
@@ -13,6 +13,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     opacity: 0.75;
+    flex-direction: row;
 }
 
 .unity-button:active {

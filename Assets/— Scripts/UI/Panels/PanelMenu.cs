@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TriInspector;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -18,7 +16,7 @@ public class PanelMenuFile : PanelFileBase
     public new class UxmlFactory : UxmlFactory<PanelMenuFile> { }
 
     [SerializeField, ReadOnly] PanelModeFile panelModeCurrent;
-    VisualElement panelModeContainer;
+    VisualElement modeContainer;
 
     public static Action OnSettingsClicked, OnPlayClicked, OnShopClicked, OnQuitClicked;
     public static Action OnPrevModeClicked, OnNextModeClicked;
@@ -34,7 +32,7 @@ public class PanelMenuFile : PanelFileBase
         {
             if (panel is PanelModeDescriptionFile)
             {
-                Translate(this, new Vector2(0, 0));
+                Show();
             }
         };
         OnBack += (PanelFileBase panel) =>
@@ -59,9 +57,8 @@ public class PanelMenuFile : PanelFileBase
         crystalIcon.name = "icon-crystal";
         crystals.Add(crystalIcon);
 
-        var crystalCount = new Label("0");
+        var crystalCount = new ThemedLabelFirst("0");
         crystals.Add(crystalCount);
-        crystalCount.AddClasses(textFirst);
 
         #endregion;
 
@@ -71,85 +68,98 @@ public class PanelMenuFile : PanelFileBase
         Add(modes);
         modes.name = "modes";
 
-        panelModeContainer = new VisualElement();
-        modes.Add(panelModeContainer);
-        panelModeContainer.name = "panel-mode-container";
-        //var mp = new PanelModeFile();
-        //panelModeContainer.Add(mp);
+        modeContainer = new VisualElement();
+        modes.Add(modeContainer);
+        modeContainer.name = "mode-container";
+        //var md = new PanelModeFile(PuzzleModes.PuzzleModeCurrent);
+        //modeContainer.Add(md);
 
         var buttonsMode = new VisualElement();
         modes.Add(buttonsMode);
         buttonsMode.pickingMode = PickingMode.Ignore;
         buttonsMode.name = "buttons-mode";
 
-        var buttonPrevMode = new Button();
+        var buttonPrevMode = new ThemedButtonFirst();
         buttonsMode.Add(buttonPrevMode);
         buttonPrevMode.text = "";
-        buttonPrevMode.AddClasses("button-mode", buttonSecond);
+        buttonPrevMode.AddClasses("button-mode");
         buttonPrevMode.name = "button-prev-mode";
-        var iconPrev = new VisualElement();
+        var iconPrev = new ThemedIconFirst();
         buttonPrevMode.Add(iconPrev);
         iconPrev.name = "icon-prev";
         iconPrev.AddClasses("icon");
 
-        var buttonNextMode = new Button();
+        var buttonPlay = new ThemedButtonFirst();
+        buttonsMode.Add(buttonPlay);
+        buttonPlay.name = "button-play";
+        buttonPlay.RegisterCallback((ClickEvent click) => {
+            OnPlayClicked?.Invoke();
+        });
+        var iconPlay = new ThemedIconFirst();
+        buttonPlay.Add(iconPlay);
+        iconPlay.name = "icon-play";
+        var labelPlay = new ThemedLabelFirst(new Translation("Start", "Старт"));
+        buttonPlay.Add(labelPlay);
+
+        var buttonNextMode = new ThemedButtonFirst();
         buttonsMode.Add(buttonNextMode);
         buttonNextMode.text = "";
-        buttonNextMode.AddClasses("button-mode", buttonSecond);
+        buttonNextMode.AddClasses("button-mode");
         buttonNextMode.name = "button-next-mode";
-        var iconNext = new VisualElement();
+        var iconNext = new ThemedIconFirst();
         buttonNextMode.Add(iconNext);
         iconNext.name = "icon-next";
         iconNext.AddClasses("icon");
-
 
         #endregion;
 
         #region buttons;
 
-        var buttons = new VisualElement();
+        VisualElement buttons = new();
         Add(buttons);
         buttons.name = "buttons";
 
-        var buttonShop = new Button();
+        ThemedButtonZero buttonShop = new();
         buttons.Add(buttonShop);
         buttonShop.RegisterCallback((ClickEvent click) =>
         {
+            Translate(this, new Vector2(0, -3000));
             OnShopClicked?.Invoke();
         });
         buttonShop.name = "button-shop";
-        var iconShop = new VisualElement();
+        buttonShop.AddClasses("button-zero");
+        ThemedIconFirst iconShop = new();
         buttonShop.Add(iconShop);
         iconShop.name = "icon-shop";
-        var labelShop = new LabelWithTranslation(new Translation("Shop", "Магазин"));
+        ThemedLabelFirst labelShop = new(new Translation("Shop", "Магазин"));
         buttonShop.Add(labelShop);
-        labelShop.AddClasses(textFirst);
         labelShop.name = "label-shop";
 
-        var buttonsBottom = new VisualElement();
+        VisualElement buttonsBottom = new();
         buttons.Add(buttonsBottom);
         buttonsBottom.name = "buttons-bottom";
 
-        var buttonSettings = new Button();
+        Button buttonSettings = new();
         buttonsBottom.Add(buttonSettings);
         buttonSettings.RegisterCallback((ClickEvent click) =>
         {
             OnSettingsClicked?.Invoke();
+            Translate(this, new Vector2(3000, 0));
         });
         buttonSettings.name = "button-settings";
-        var buttonSettingsIcon = new VisualElement();
+        ThemedIconFirst buttonSettingsIcon = new();
         buttonSettings.Add(buttonSettingsIcon);
         buttonSettingsIcon.name = "icon-settings";
         buttonSettingsIcon.AddClasses("icon");
 
-        var buttonQuit = new Button();
+        Button buttonQuit = new();
         buttonsBottom.Add(buttonQuit);
         buttonQuit.RegisterCallback((ClickEvent click) =>
         {
             OnQuitClicked?.Invoke();
         });
         buttonQuit.name = "button-quit";
-        var buttonExitIcon = new VisualElement();
+        ThemedIconFirst buttonExitIcon = new();
         buttonQuit.Add(buttonExitIcon);
         buttonExitIcon.name = "icon-quit";
         buttonExitIcon.AddClasses("icon");
@@ -163,9 +173,8 @@ public class PanelMenuFile : PanelFileBase
         {
             panelModeCurrent.RemoveFromHierarchy();
         }
-        var panelMode = new PanelModeFile();
-        panelMode.Setup(newMode);
+        var panelMode = new PanelModeFile(newMode);
         panelModeCurrent = panelMode;
-        panelModeContainer.Add(panelMode);
+        modeContainer.Add(panelMode);
     }
 }

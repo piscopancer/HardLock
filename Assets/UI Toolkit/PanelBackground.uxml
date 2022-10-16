@@ -1,4 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/theme-dark.uss?fileID=7433441132597879392&amp;guid=5e7e0d7946052224b90af06f01601845&amp;type=3#theme-dark" />
-    <ui:VisualElement name="background-main" style="flex-grow: 1; align-items: center; justify-content: flex-start; overflow: hidden;" />
+    <ui:VisualElement name="background-image" style="flex-grow: 1; align-items: center; justify-content: flex-start; overflow: hidden; background-image: url(&apos;project://database/Assets/%E2%80%94%20Sprites/backgrounds/bg_dark_2.jpg?fileID=2800000&amp;guid=4897aadf474a7a34eaec212ffbe4b088&amp;type=3#bg_dark_2&apos;); -unity-background-scale-mode: scale-and-crop;" />
 </ui:UXML>

@@ -21,53 +21,50 @@ public class PanelSettingsFile : PanelFileBase
 
     public PanelSettingsFile()
     {
-        PanelMenuFile.OnSettingsClicked += () =>
-        {
+        PanelMenuFile.OnSettingsClicked += () => {
             Translate(this, new Vector2(0, 0), new Vector2(-3000, 0));
         };
-        SaveSystem.OnAppStarted += () =>
-        {
+        SaveSystem.OnAppStarted += () => {
             TranslateInstantly(this, new Vector2(-3000, 0));
         };
 
-        this.AddClasses(backgroundFirst);
+        var body = new ThemedContainerSecond();
+        Add(body);
+        body.name = "body";
 
         #region header
 
-        var header = new VisualElement();
-        Add(header);
+        var header = new ThemedContainerFirst();
+        body.Add(header);
         header.name = "header";
-        header.AddClasses(backgroundSecond);
 
-        var labelHeader = new LabelWithTranslation(new Translation("Settings", "Настройки"));
+        var labelHeader = new ThemedLabelSecond(new Translation("Settings", "Настройки"));
         header.Add(labelHeader);
         labelHeader.name = "label-header";
-        labelHeader.AddClasses(textSecond);
 
-        var buttonHide = new Button();
+        var buttonHide = new ThemedButtonSecond();
         header.Add(buttonHide);
         buttonHide.name = "button-hide";
-        buttonHide.AddClasses(buttonFirst);
         buttonHide.RegisterCallback((ClickEvent click) =>
         {
             Back();
             Translate(this, new Vector2(-3000, 0));
         });
-        var buttonHideIcon = new VisualElement();
+        var buttonHideIcon = new ThemedIconSecond();
         buttonHide.Add(buttonHideIcon);
-        buttonHideIcon.AddClasses("icon");
+        buttonHideIcon.name = "button-hide-icon";
 
         #endregion
 
         #region main
 
         var main = new VisualElement();
-        Add(main);
+        body.Add(main);
         main.name = "main";
 
-        var labelChooseLang = new LabelWithTranslation(new Translation("Choose language", "Выберите язык"));
+        var labelChooseLang = new ThemedLabelFirst(new Translation("Choose language", "Выберите язык"));
         main.Add(labelChooseLang);
-        labelChooseLang.AddClasses(textSecond, "label-title");
+        labelChooseLang.AddClasses("label-title");
 
         var buttonsLanguage = new VisualElement();
         main.Add(buttonsLanguage);
@@ -75,7 +72,7 @@ public class PanelSettingsFile : PanelFileBase
 
         var buttonEnglish = new ButtonLanguage("English");
         buttonsLanguage.Add(buttonEnglish);
-        buttonEnglish.AddClasses("button-language", buttonFirst);
+        buttonEnglish.AddClasses("button-language");
         buttonEnglish.name = "button-english";
         buttonEnglish.RegisterCallback((ClickEvent click) =>
         {
@@ -84,7 +81,7 @@ public class PanelSettingsFile : PanelFileBase
 
         var buttonRussian = new ButtonLanguage("Русский");
         buttonsLanguage.Add(buttonRussian);
-        buttonRussian.AddClasses("button-language", buttonFirst);
+        buttonRussian.AddClasses("button-language");
         buttonRussian.name = "button-russian";
         buttonRussian.RegisterCallback((ClickEvent click) =>
         {
@@ -95,24 +92,18 @@ public class PanelSettingsFile : PanelFileBase
     }
 }
 
-public class ButtonLanguage : Button
+public class ButtonLanguage : ThemedButtonFirst
 {
     public new class UxmlFactory : UxmlFactory<ButtonLanguage> { }
 
-    public ButtonLanguage()
-    {
+    public ButtonLanguage(): base() { }
 
-    }
-
-    public ButtonLanguage(string langName)
-    {
+    public ButtonLanguage(string langName) : base() {
         var languageIcon = new VisualElement();
         Add(languageIcon);
         languageIcon.name = "icon";
-        var languageName = new Label();
+        var languageName = new ThemedLabelFirst(langName);
         Add(languageName);
-        languageName.text = langName;
         languageName.name = "name";
-        languageName.AddClasses("text-first");
     }
 }

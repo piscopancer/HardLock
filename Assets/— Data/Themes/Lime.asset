@@ -12,15 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f4f716558a0194eba951964c71476f, type: 3}
   m_Name: Lime
   m_EditorClassIdentifier: 
-  Price: 500
+  <Name>k__BackingField: {fileID: 11400000, guid: 007021678c861564aa561bd4fe7770c3, type: 2}
   ShopColor: {r: 0.32156864, g: 0.7137255, b: 0.6039216, a: 1}
-  BackgroundColor: {r: 0.20392159, g: 0.627451, b: 0.6431373, a: 1}
-  Background2Color: {r: 0.10196079, g: 0.45882356, b: 0.62352943, a: 1}
-  ArrowColor: {r: 0.85098046, g: 0.9294118, b: 0.57254905, a: 1}
-  PieceCenterColor: {r: 0.70980394, g: 0.8941177, b: 0.54901963, a: 0.5019608}
-  ActivePieceColor: {r: 0.70980394, g: 0.8941177, b: 0.54901963, a: 1}
-  NotActivePieceColor: {r: 0.3964934, g: 0.7075472, b: 0.5543073, a: 0.9019608}
-  PieceBackColor: {r: 0.10196079, g: 0.45882356, b: 0.62352943, a: 1}
-  AccentColor: {r: 0.85098046, g: 0.9294118, b: 0.57254905, a: 1}
-  ButtonColor: {r: 0.09411766, g: 0.30588236, b: 0.4666667, a: 1}
-  TextColor: {r: 0.8395693, g: 0.92618054, b: 0.9528302, a: 1}
+  ButtonZeroBackground: {r: 0.8672123, g: 0.8773585, b: 0.58269846, a: 1}
+  ButtonZeroBorder: {r: 0.32156864, g: 0.7137255, b: 0.6039216, a: 1}
+  ButtonZeroInside: {r: 0.32156864, g: 0.7137255, b: 0.6039216, a: 1}

@@ -7,40 +7,23 @@ using UnityEngine.UIElements;
 
 public abstract class PanelFileBase : VisualElement
 {
-    [SerializeField] StyleSheet ussThemeCurrent;
-
-    protected static string buttonFirst = "button-first", buttonSecond = "button-second", buttonSmall = "button-small", buttonLarge = "button-large", backgroundFirst = "background-first", backgroundSecond = "background-second", textFirst = "text-first", textSecond = "text-second", icon = "icon";
-
     const float TIME_FADE = 0.1f;
 
     public static Action<PanelFileBase> OnShow, OnHide, OnBack;
 
-    public PanelFileBase()
-    {
-        Themes.OnThemeChanged += SetTheme;
-    }
+    public PanelFileBase() {
 
-    void SetTheme(ThemeProfile theme)
-    {
-        if (ussThemeCurrent != null)
-        {
-            styleSheets.Remove(ussThemeCurrent);
-            ussThemeCurrent = null;
-        }
-        ussThemeCurrent = theme.USS;
-        styleSheets.Add(theme.USS);
-        Debug.Log(name + " added theme: " + theme.USS.name);
     }
 
     public void Hide()
     {
-        style.display = DisplayStyle.None;
+        parent.style.display = DisplayStyle.None;
         OnHide?.Invoke(this);
     }
 
     public void Show()
     {
-        style.display = DisplayStyle.Flex;
+        parent.style.display = DisplayStyle.Flex;
         OnShow?.Invoke(this);
     }
 

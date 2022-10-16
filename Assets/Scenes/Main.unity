@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Document>k__BackingField: {fileID: 222123268}
-  isActiveOnStart: 1
+  isActiveOnStart: 0
 --- !u!114 &222123268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,18 +722,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listThemes:
-  - <Name>k__BackingField: {fileID: 11400000, guid: 0d42892a592bb8445b4c960889533724, type: 2}
-    <IfSelected>k__BackingField: 0
+  - <IfSelected>k__BackingField: 0
     <Price>k__BackingField: 0
     <IfBought>k__BackingField: 1
-    <ColorShop>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-    <USS>k__BackingField: {fileID: 7433441132597879392, guid: 706788dca8620bb4f9e1ac31e0602a39, type: 3}
-  - <Name>k__BackingField: {fileID: 11400000, guid: 73116796252674041a93c24a2276772a, type: 2}
-    <IfSelected>k__BackingField: 0
+    <Theme>k__BackingField: {fileID: 11400000, guid: f96e8fff36d9c634fbad5dcad47634a4, type: 2}
+  - <IfSelected>k__BackingField: 0
     <Price>k__BackingField: 50
     <IfBought>k__BackingField: 0
-    <ColorShop>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-    <USS>k__BackingField: {fileID: 7433441132597879392, guid: 5e7e0d7946052224b90af06f01601845, type: 3}
+    <Theme>k__BackingField: {fileID: 11400000, guid: b744d6b10ae5f6844aebd2002abd0f42, type: 2}
 --- !u!1 &768817120
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,17 +72,17 @@ public class Themes : MonoBehaviour
             }
         }
         OnThemeChanged?.Invoke(newTheme);
-        Debug.Log("theme set to: " + newTheme.Name.Text);
+        Debug.Log("theme set to: " + newTheme.Theme.Name.Text);
     }
 }
 
 [Serializable]
 public class ThemeProfile : PurchasableItemPermanent
 {
-    [field: SerializeField, Required, InlineEditor] public Translation Name { get; private set; }
     [field: SerializeField, TriInspector.ReadOnly] public bool IfSelected { get; set; }
     [field: SerializeField, Min(0)] public int Price { get; set; }
     [field: SerializeField] public bool IfBought { get; set; }
-    [field: SerializeField] public Color ColorShop { get; private set; } = Color.white;
-    [field: SerializeField, Required] public StyleSheet USS { get; private set; }
+    [field: SerializeField, Required, InlineEditor] public ThemeData Theme { get; private set; }
+    //[field: SerializeField] public Color ColorShop { get; private set; } = Color.white;
+    //[field: SerializeField, Required] public StyleSheet USS { get; private set; }
 }
