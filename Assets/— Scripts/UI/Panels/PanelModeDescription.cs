@@ -22,11 +22,14 @@ public class PanelModeDescriptionFile : PanelFileBase
     ThemedLabelFirst labelModeDescription;
 
     public PanelModeDescriptionFile(){
-        PanelModeFile.OnInfoClicked += (PuzzleMode mode) =>{
+        PanelModeFile.OnInfoClicked += async(PuzzleMode mode) =>{
             Show();
             Setup(mode);
-            Translate(body, new Vector2(0, 0), new Vector2(0, 200));
+            body.Fade(FadeMode.Show);
+            body.Translate(new Vector2(0, 0), new Vector2(0, 400));
         };
+
+        style.backgroundColor = new Color(0, 0, 0, 0.8f);
 
         body = new ThemedContainerSecond();
         Add(body);
@@ -57,8 +60,9 @@ public class PanelModeDescriptionFile : PanelFileBase
         var buttonOK = new ThemedButtonSecond();
         main.Add(buttonOK);
         buttonOK.name = "button-ok";
-        buttonOK.RegisterCallback((ClickEvent click) =>
+        buttonOK.RegisterCallback(async (ClickEvent click) =>
         {
+            await body.Fade(FadeMode.Hide);
             Hide();
         });
         var labelButtonOK = new ThemedLabelSecond(new Translation("Ok, and?", "ќк, ладно"));

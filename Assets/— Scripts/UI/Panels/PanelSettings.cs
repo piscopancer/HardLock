@@ -22,10 +22,10 @@ public class PanelSettingsFile : PanelFileBase
     public PanelSettingsFile()
     {
         PanelMenuFile.OnSettingsClicked += () => {
-            Translate(this, new Vector2(0, 0), new Vector2(-3000, 0));
+            this.Translate(new Vector2(0, 0), new Vector2(-3000, 0));
         };
         SaveSystem.OnAppStarted += () => {
-            TranslateInstantly(this, new Vector2(-3000, 0));
+            this.TranslateInstantly(new Vector2(-3000, 0));
         };
 
         var body = new ThemedContainerSecond();
@@ -48,7 +48,6 @@ public class PanelSettingsFile : PanelFileBase
         buttonHide.RegisterCallback((ClickEvent click) =>
         {
             Back();
-            Translate(this, new Vector2(-3000, 0));
         });
         var buttonHideIcon = new ThemedIconSecond();
         buttonHide.Add(buttonHideIcon);
@@ -89,6 +88,11 @@ public class PanelSettingsFile : PanelFileBase
         });
 
         #endregion
+    }
+
+    public override void Back() {
+        base.Back();
+        this.Translate(new Vector2(-3000, 0));
     }
 }
 

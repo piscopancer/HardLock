@@ -21,34 +21,55 @@ public class PanelShopFile : PanelFileBase
     public PanelShopFile()
     {
         PanelMenuFile.OnShopClicked += () => {
-            Translate(this, new Vector2(0, 0), new Vector2(0, 3000));
+            this.Translate(new Vector2(0, 0), new Vector2(0, 3000));
         };
         SaveSystem.OnAppStarted += () => {
-            TranslateInstantly(this, new Vector2(0, 3000));
+            this.TranslateInstantly(new Vector2(0, 3000));
         };
 
+        ScrollView scroll = new(ScrollViewMode.Vertical);
+        Add(scroll);
+        scroll.name = "scroll";
+        scroll.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
+        scroll.verticalScrollerVisibility = ScrollerVisibility.Hidden;
+        scroll.touchScrollBehavior = ScrollView.TouchScrollBehavior.Clamped;
+
         ThemedButtonSecond buttonBack = new();
-        Add(buttonBack);
+        scroll.Add(buttonBack);
         buttonBack.name = "button-back";
         buttonBack.RegisterCallback((ClickEvent click) => {
-            Translate(this, new Vector2(0, 3000));
             Back();
         });
         ThemedIconSecond iconBack = new();
         buttonBack.Add(iconBack);
         iconBack.name = "icon-back";
 
-        ThemedLabelSecond labelThemes = new(new Translation("Buy themes", "Купите темы"));
-        Add(labelThemes);
-        labelThemes.AddClasses("title");
+        VisualElement headerThemes = new();
+        scroll.Add(headerThemes);
+        headerThemes.AddClasses("header");
+        ThemedLabelFirst labelThemes = new(new Translation("Buy themes", "Купите темы"));
+        headerThemes.Add(labelThemes);
+        labelThemes.name = "label-themes";
+        ThemedLabelFirst themesCount = new($"{Themes.ListThemesBought.Count}/{Themes.ListThemes.Count}");
+        headerThemes.Add(themesCount);
+        themesCount.name = "themes-count";
 
         buttonsThemes = new();
-        Add(buttonsThemes);
+        scroll.Add(buttonsThemes);
         buttonsThemes.name = "buttons-themes";
         foreach (var profile in Themes.ListThemes) {
             ButtonTheme buttonTheme = new(profile);
             buttonsThemes.Add(buttonTheme);
         }
+
+        Themes.OnThemeBought += (ThemeProfile profile, int price) => {
+            themesCount.text = $"{Themes.ListThemesBought.Count}/{Themes.ListThemes.Count}";
+        };
+    }
+
+    public override void Back() {
+        base.Back();
+        this.Translate(new Vector2(0, 3000));
     }
 }
 
@@ -65,11 +86,9 @@ public class ButtonTheme : Button {
             Clear();
             Setup(this.profile);
         };
-        Balance.OnItemBought += (PurchasableItem boughtItem) => {
-            if (boughtItem is ThemeProfile) {
-                Clear();
-                Setup(this.profile);
-            }
+        Themes.OnThemeBought += (ThemeProfile profile, int price) => {
+            Clear();
+            Setup(this.profile);
         };
 
         RegisterCallback((ClickEvent click) => {
@@ -160,7 +179,7 @@ public class ButtonTheme : Button {
                 labelSelect.name = "label-select";
             }
             if (profile.IfSelected) {
-                VisualElement iconSelected = new();
+                ThemedIconFirst iconSelected = new();
                 state.Add(iconSelected);
                 iconSelected.name = "icon-selected";
             }

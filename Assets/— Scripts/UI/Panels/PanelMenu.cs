@@ -24,22 +24,11 @@ public class PanelMenuFile : PanelFileBase
     public PanelMenuFile()
     {
         PuzzleModes.OnPuzzleModeChanged += SetPanelMode;
-        PanelModeFile.OnInfoClicked += (PuzzleMode mode) =>
-        {
-            Hide();
-        };
-        OnHide += (PanelFileBase panel) =>
-        {
-            if (panel is PanelModeDescriptionFile)
-            {
-                Show();
-            }
-        };
         OnBack += (PanelFileBase panel) =>
         {
             if (panel is PanelSettingsFile || panel is PanelShopFile)
             {
-                Translate(this, new Vector2(0, 0));
+                this.Translate(new Vector2(0, 0));
             }
         };
 
@@ -57,7 +46,7 @@ public class PanelMenuFile : PanelFileBase
         crystalIcon.name = "icon-crystal";
         crystals.Add(crystalIcon);
 
-        var crystalCount = new ThemedLabelFirst("0");
+        var crystalCount = new ThemedLabelFirst($"{Balance.Coins}");
         crystals.Add(crystalCount);
 
         #endregion;
@@ -71,8 +60,6 @@ public class PanelMenuFile : PanelFileBase
         modeContainer = new VisualElement();
         modes.Add(modeContainer);
         modeContainer.name = "mode-container";
-        //var md = new PanelModeFile(PuzzleModes.PuzzleModeCurrent);
-        //modeContainer.Add(md);
 
         var buttonsMode = new VisualElement();
         modes.Add(buttonsMode);
@@ -123,7 +110,7 @@ public class PanelMenuFile : PanelFileBase
         buttons.Add(buttonShop);
         buttonShop.RegisterCallback((ClickEvent click) =>
         {
-            Translate(this, new Vector2(0, -3000));
+            this.Translate(new Vector2(0, -3000));
             OnShopClicked?.Invoke();
         });
         buttonShop.name = "button-shop";
@@ -131,7 +118,7 @@ public class PanelMenuFile : PanelFileBase
         ThemedIconFirst iconShop = new();
         buttonShop.Add(iconShop);
         iconShop.name = "icon-shop";
-        ThemedLabelFirst labelShop = new(new Translation("Shop", "Магазин"));
+        ThemedLabelZero labelShop = new(new Translation("Shop", "Магазин"));
         buttonShop.Add(labelShop);
         labelShop.name = "label-shop";
 
@@ -144,7 +131,7 @@ public class PanelMenuFile : PanelFileBase
         buttonSettings.RegisterCallback((ClickEvent click) =>
         {
             OnSettingsClicked?.Invoke();
-            Translate(this, new Vector2(3000, 0));
+            this.Translate(new Vector2(3000, 0));
         });
         buttonSettings.name = "button-settings";
         ThemedIconFirst buttonSettingsIcon = new();
@@ -165,6 +152,10 @@ public class PanelMenuFile : PanelFileBase
         buttonExitIcon.AddClasses("icon");
 
         #endregion;
+
+        Balance.OnNewBalance += (int balance) => {
+            crystalCount.text = $"{balance}";
+        };
     }
 
     void SetPanelMode(PuzzleMode newMode, int indexPrev, int indexNew)

@@ -15,11 +15,10 @@ public class SaveSystem : MonoBehaviour
 
     void Awake()
     {
-        //PanelMenu.OnQuitClicked += delegate
-        //{
-        //    Save();
-        //    Application.Quit();
-        //}; 
+        PanelMenuFile.OnQuitClicked += delegate {
+            Save();
+            Application.Quit();
+        };
     }
 
     void Start()

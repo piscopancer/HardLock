@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Unity.Collections;
-using UnityEngine.UIElements;
 using TriInspector;
 
 public class Themes : MonoBehaviour
@@ -30,6 +27,17 @@ public class Themes : MonoBehaviour
             return FindObjectOfType<Themes>().listThemes;
         }
     }
+    public static List<ThemeProfile> ListThemesBought {
+        get {
+            var list = new List<ThemeProfile>();
+            foreach (var theme in ListThemes) {
+                if (theme.IfBought) {
+                    list.Add(theme);
+                }
+            }
+            return list;
+        }
+    }
     public static Action<ThemeProfile> OnThemeChanged;
     public static Action<ThemeProfile, int> OnThemeBought;
 
@@ -44,6 +52,11 @@ public class Themes : MonoBehaviour
             SetTheme(ListThemes[0]);
         };
         ButtonTheme.OnSelectThemeClicked += SetTheme;
+        Balance.OnItemBought += (PurchasableItem boughtItem) => {
+            if (boughtItem is ThemeProfile) {
+                OnThemeBought?.Invoke(boughtItem as ThemeProfile, boughtItem.Price);
+            }
+        };
     }
 
     void Update()

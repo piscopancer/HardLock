@@ -168,6 +168,7 @@ public abstract class ThemedLabel : Label
     public void DisableTheme() {
         Themes.OnThemeChanged -= SetTheme;
         theme = null;
+        style.color = StyleKeyword.Null;
     }
 }
 
